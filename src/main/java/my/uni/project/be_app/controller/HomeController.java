@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class HomeController {
 
-    @RequestMapping("/")
+    @RequestMapping("/")    //Test di prova Mostro stringa a video
     public String greet(){
         return "Welcome to Chat";
     }
