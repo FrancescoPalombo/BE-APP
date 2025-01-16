@@ -10,11 +10,11 @@ import java.util.ArrayList;
 import org.springframework.stereotype.Component;
 
 @Component
-public class WordsDataset {
+public class WordsDataset {    //Modello Oggetto Dataset parole bannate
     private ArrayList<String> dataset = new ArrayList<>();
     
     public WordsDataset(){   
-        try(
+        try(    //Gestione Eccezzioni per apertura file con gestione degli errori
             InputStream is = getClass().getClassLoader().getResourceAsStream("lista_badwords.txt");
             BufferedReader inFile = new BufferedReader(new InputStreamReader(is));){
                 String line;
@@ -28,13 +28,13 @@ public class WordsDataset {
             throw new IllegalStateException("Error reading the file: lista_badwords.txt", e);
         }        
     }
-    public int getLength(){
+    public int getLength(){    //Metodo get Lunghezza ArrayList Dataset
         return dataset.size();
     }
-    public String getDataset(int n){
+    public String getDataset(int n){    //Metodo get Elemento n Dataset
         return dataset.get(n);        
     }
-    public void printDataset(){
+    public void printDataset(){    //Metodo stampa a video controlloro presenza Dataset
         for(String word : dataset){
             System.out.println(word);
         }
