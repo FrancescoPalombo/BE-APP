@@ -20,16 +20,16 @@ public class ChatController {
     @Autowired
     private ChatService service;
     
-    @GetMapping("/chat")
+    @GetMapping("/chat")    //Invio Messaggio moderato
     public List<Message> getMessage(){
         return service.getMessages();
     }
-    @PostMapping("/chat")
+    @PostMapping("/chat")    //Ricevo Messaggio da moderare
     public void setMessage(@RequestBody Message message) {
         System.out.println("Messaggio ricevuto nel controller: " + message);
         if (message != null && message.getMessage() != null) {
-            service.setMessage(message);
-        } else {
+            service.setMessage(message);    //Richiamo servizio per moderare il messaggio
+        } else {    //Controllo contenuto NULL
             System.out.println("Messaggio ricevuto è nullo.");
         }
     }
