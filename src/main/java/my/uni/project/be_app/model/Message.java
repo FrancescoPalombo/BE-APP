@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 @AllArgsConstructor
-public class Message {
+public class Message {    //Modello oggetto Messaggio
     private String message;
 }
